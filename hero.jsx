@@ -32,7 +32,7 @@ function BrandOrb({ size = 64 }) {
 }
 window.BrandOrb = BrandOrb;
 
-function Signboard({ variant = "luxe", text = "JANGRA", sub = "ADVERTISEMENT" }) {
+function Signboard({ variant = "luxe", text = "JANGRA", sub = "ADVERTISEMENT", logoSrc = "uploads/00001.png" }) {
   const tilt = useRef(null);
   useEffect(() => {
     const el = tilt.current;
@@ -92,33 +92,22 @@ function Signboard({ variant = "luxe", text = "JANGRA", sub = "ADVERTISEMENT" })
           overflow: 'hidden',
         }}>
           {/* gold ornament line top */}
-          <div style={{ width: '40%', height: '1px', background: 'linear-gradient(90deg, transparent, #d4a437, transparent)', marginBottom: '10px' }} />
+          <div style={{ width: '40%', height: '1px', background: 'linear-gradient(90deg, transparent, #d4a437, transparent)', marginBottom: '14px' }} />
 
-          {/* main text */}
-          <div className="serif" style={{
-            fontSize: 'clamp(38px, 7vw, 78px)',
-            fontWeight: 800,
-            letterSpacing: '0.04em',
-            background: 'linear-gradient(180deg, #ffe89a 0%, #f0c75a 30%, #d4a437 60%, #8a6a1f 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            textShadow: '0 0 40px rgba(212,164,55,0.4)',
-            filter: 'drop-shadow(0 0 14px rgba(240,199,90,0.5))',
-            lineHeight: 1,
-          }}>
-            {text}
-          </div>
-
-          {/* subtext — red glow like the logo */}
-          <div className="mono" style={{
-            marginTop: '14px',
-            fontSize: 'clamp(9px, 1.2vw, 12px)',
-            letterSpacing: '0.5em',
-            color: '#ff6b6b',
-            textShadow: '0 0 8px rgba(230,57,70,0.7), 0 0 16px rgba(230,57,70,0.4)',
-          }}>
-            {sub}
-          </div>
+          {/* logo image */}
+          <img
+            src={logoSrc}
+            alt={`${text} logo`}
+            style={{
+              maxWidth: '78%',
+              maxHeight: '60%',
+              width: 'auto',
+              height: 'auto',
+              objectFit: 'contain',
+              filter: 'drop-shadow(0 0 18px rgba(240,199,90,0.45)) drop-shadow(0 0 32px rgba(212,164,55,0.25))',
+              display: 'block',
+            }}
+          />
 
           {/* gold ornament line bottom */}
           <div style={{ width: '40%', height: '1px', background: 'linear-gradient(90deg, transparent, #d4a437, transparent)', marginTop: '14px' }} />
