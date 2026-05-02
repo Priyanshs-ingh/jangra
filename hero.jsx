@@ -37,6 +37,9 @@ function Signboard({ variant = "luxe", text = "JANGRA", sub = "ADVERTISEMENT" })
   useEffect(() => {
     const el = tilt.current;
     if (!el) return;
+    // Skip mouse-driven tilt on touch devices — coarse pointers fire spurious
+    // mousemove events on some Android browsers and the effect doesn't help.
+    if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
     const onMove = (e) => {
       const r = el.getBoundingClientRect();
       const cx = r.left + r.width / 2;
@@ -178,9 +181,9 @@ function HeroLuxe({ headline, sub, onQuote, onWork, phone }) {
         maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)',
       }} />
 
-      <div className="container" style={{ position: 'relative', zIndex: 2, display: 'grid', gridTemplateColumns: '1.05fr 1fr', gap: '60px', alignItems: 'center' }}>
+      <div className="container hero-luxe-grid" style={{ position: 'relative', zIndex: 2, display: 'grid', gridTemplateColumns: '1.05fr 1fr', gap: '60px', alignItems: 'center' }}>
         <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
             <div className="brand-rule"><span className="r"></span><span className="g"></span><span className="b"></span></div>
             <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'var(--gold)' }}>Est. 2008 · Gurgaon, Haryana</span>
           </div>
@@ -208,7 +211,7 @@ function HeroLuxe({ headline, sub, onQuote, onWork, phone }) {
           </p>
 
           {/* CTAs */}
-          <div style={{ display: 'flex', gap: '14px', marginTop: '40px', flexWrap: 'wrap' }}>
+          <div className="hero-cta-row" style={{ display: 'flex', gap: '14px', marginTop: '40px', flexWrap: 'wrap' }}>
             <button onClick={onQuote} className="row" style={{
               padding: '17px 30px',
               background: 'var(--gold)', color: '#0a0a0a',
@@ -239,7 +242,7 @@ function HeroLuxe({ headline, sub, onQuote, onWork, phone }) {
           </div>
 
           {/* trust strip */}
-          <div style={{ display: 'flex', gap: '50px', marginTop: '64px', flexWrap: 'wrap' }}>
+          <div className="hero-trust-strip" style={{ display: 'flex', gap: '50px', marginTop: '64px', flexWrap: 'wrap' }}>
             {[
               { n: '17', l: 'Years\nin business' },
               { n: '2.4K+', l: 'Signs\ndelivered' },
@@ -260,7 +263,7 @@ function HeroLuxe({ headline, sub, onQuote, onWork, phone }) {
       </div>
 
       {/* scroll cue */}
-      <div style={{
+      <div className="hero-scroll-cue" style={{
         position: 'absolute', bottom: '32px', left: '40px',
         display: 'flex', alignItems: 'center', gap: '12px',
         fontFamily: 'JetBrains Mono, monospace', fontSize: '10px', letterSpacing: '0.24em',
@@ -271,7 +274,7 @@ function HeroLuxe({ headline, sub, onQuote, onWork, phone }) {
       </div>
 
       {/* phone tag */}
-      <div style={{
+      <div className="hero-phone-tag" style={{
         position: 'absolute', bottom: '32px', right: '40px',
         fontFamily: 'JetBrains Mono, monospace', fontSize: '11px',
         color: 'var(--gold)', letterSpacing: '0.08em',
@@ -288,7 +291,7 @@ function HeroEditorial({ headline, sub, onQuote, onWork, phone }) {
     <section className="hero" id="home" style={{ minHeight: '100vh' }}>
       <div className="container" style={{ position: 'relative', zIndex: 2, paddingTop: '40px' }}>
         {/* top meta row */}
-        <div className="between" style={{ paddingBottom: '40px', borderBottom: '1px solid var(--line-2)' }}>
+        <div className="between hero-editorial-meta" style={{ paddingBottom: '40px', borderBottom: '1px solid var(--line-2)' }}>
           <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--muted)' }}>
             Vol. 17 · No. 04 · Spring Edition
           </div>
@@ -298,7 +301,7 @@ function HeroEditorial({ headline, sub, onQuote, onWork, phone }) {
         </div>
 
         {/* title block */}
-        <div style={{ marginTop: '70px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'flex-start' }}>
+        <div className="hero-editorial-grid" style={{ marginTop: '70px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'flex-start' }}>
           <div>
             <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.32em', color: 'var(--gold)', textTransform: 'uppercase' }}>
               The studio
@@ -343,7 +346,7 @@ function HeroEditorial({ headline, sub, onQuote, onWork, phone }) {
         </div>
 
         {/* footer band */}
-        <div style={{ marginTop: '90px', paddingTop: '28px', borderTop: '1px solid var(--line-2)', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '40px' }}>
+        <div className="hero-editorial-foot" style={{ marginTop: '90px', paddingTop: '28px', borderTop: '1px solid var(--line-2)', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '40px' }}>
           {[
             ['Studio', 'Sector 14, Gurgaon\nHaryana, IN'],
             ['Hours', 'Mon–Sat\n09:00 — 19:00'],
@@ -364,7 +367,7 @@ function HeroEditorial({ headline, sub, onQuote, onWork, phone }) {
 // ─────  Hero V3 — Bold Industrial  ─────
 function HeroIndustrial({ headline, sub, onQuote, onWork, phone }) {
   return (
-    <section className="hero" id="home" style={{ paddingTop: '90px' }}>
+    <section className="hero hero-industrial" id="home" style={{ paddingTop: '90px' }}>
       {/* big offset gold block */}
       <div style={{
         position: 'absolute', top: '120px', right: '-180px',
@@ -394,12 +397,12 @@ function HeroIndustrial({ headline, sub, onQuote, onWork, phone }) {
           </span>
         </h1>
 
-        <div style={{ marginTop: '50px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'flex-start' }}>
+        <div className="hero-industrial-grid" style={{ marginTop: '50px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'flex-start' }}>
           <div>
             <p style={{ fontSize: '18px', lineHeight: 1.55, color: 'var(--text)', maxWidth: '500px' }}>
               {sub}
             </p>
-            <div style={{ display: 'flex', gap: '14px', marginTop: '36px', flexWrap: 'wrap' }}>
+            <div className="hero-cta-row" style={{ display: 'flex', gap: '14px', marginTop: '36px', flexWrap: 'wrap' }}>
               <button onClick={onQuote} className="row" style={{
                 padding: '18px 32px',
                 background: 'var(--gold)', color: '#0a0a0a',
