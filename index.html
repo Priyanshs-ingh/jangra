@@ -100,6 +100,16 @@
     margin-top: 4px;
     text-shadow: 0 0 8px rgba(230,57,70,0.4);
   }
+  /* image-based logo rules (uploads/00001.png) */
+  .logo-img { display: block; height: 38px; width: auto; max-width: 220px; }
+  footer .logo-img { height: 56px; }
+  /* Ensure logos scale on small screens */
+  @media (max-width: 720px) {
+    .logo-img { height: 28px; }
+    footer .logo-img { height: 40px; }
+    .nav { padding: 12px 18px; }
+    .nav-links { display: none; }
+  }
   .nav-links { display: flex; gap: 36px; }
   .nav-links a {
     font-size: 13px; font-weight: 500; color: var(--text);

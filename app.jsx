@@ -36,12 +36,8 @@ function Nav({ onQuote }) {
   }, []);
   return (
     <nav className="nav" style={{ background: scrolled ? 'rgba(8,8,8,0.92)' : 'rgba(10,10,10,0.5)' }}>
-      <a href="#home" className="logo">
-        <div className="logo-mark"><span className="orb-a">J</span></div>
-        <div className="logo-text">
-          <div className="name">Jangra</div>
-          <div className="sub">ADVERTISEMENT</div>
-        </div>
+      <a href="#home" className="logo" aria-label="Jangra home">
+        <img src="uploads/00001.png" className="logo-img" alt="Jangra logo" />
       </a>
       <div className="nav-links">
         <a href="#services">Services</a>

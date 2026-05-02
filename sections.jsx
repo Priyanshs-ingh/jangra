@@ -353,13 +353,7 @@ function FooterSection({ phone }) {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <div className="logo" style={{ marginBottom: '20px' }}>
-              <div className="logo-mark"><span className="orb-a">J</span></div>
-              <div className="logo-text">
-                <div className="name">Jangra</div>
-                <div className="sub">ADVERTISEMENT</div>
-              </div>
-            </div>
+            <img src="uploads/00001.png" className="logo logo-img" alt="Jangra logo" style={{ marginBottom: '20px' }} />
             <div style={{ fontSize: '13px', color: 'var(--muted)', lineHeight: 1.7, maxWidth: '280px' }}>
               Premium signage, fabrication, and large-format print. Operating from Sector 14, Gurgaon since 2008.
             </div>
