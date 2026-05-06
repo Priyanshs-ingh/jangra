@@ -58,9 +58,9 @@ function Signboard({ variant = "luxe", text = "JANGRA", sub = "ADVERTISEMENT", l
     <div style={{ position: 'relative', width: '100%', display: 'grid', placeItems: 'center', padding: '40px 0' }}>
       {/* halo */}
       <div style={{
-        position: 'absolute', width: '90%', height: '80%',
-        background: 'radial-gradient(ellipse at center, rgba(212,164,55,0.45) 0%, rgba(212,164,55,0.15) 40%, transparent 75%)',
-        filter: 'blur(24px)',
+        position: 'absolute', width: '85%', height: '70%',
+        background: 'radial-gradient(ellipse at center, rgba(212,164,55,0.32) 0%, rgba(212,164,55,0.08) 35%, transparent 70%)',
+        filter: 'blur(20px)',
         pointerEvents: 'none',
       }} />
 
@@ -75,17 +75,18 @@ function Signboard({ variant = "luxe", text = "JANGRA", sub = "ADVERTISEMENT", l
         <div style={{ position: 'absolute', top: '-22px', left: '18%', width: '4px', height: '22px', background: 'linear-gradient(180deg, #2a2724, #444)', boxShadow: '1px 0 0 #1a1a1a' }} />
         <div style={{ position: 'absolute', top: '-22px', right: '18%', width: '4px', height: '22px', background: 'linear-gradient(180deg, #2a2724, #444)', boxShadow: '1px 0 0 #1a1a1a' }} />
 
-        {/* board face — kept dark on purpose: it's an illuminated sign on a light wall */}
+        {/* board face — cream parchment to match the light theme */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(135deg, #1a1815 0%, #0e0d0a 100%)',
-          border: '2px solid #2a2724',
+          background: 'linear-gradient(135deg, #f7efd9 0%, #ebe0c2 100%)',
+          border: '2px solid #c9bd9b',
           borderRadius: '4px',
           boxShadow: `
-            0 0 0 1px rgba(212,164,55,0.25),
-            0 30px 60px rgba(26,24,20,0.35),
-            0 0 70px rgba(212,164,55,0.35),
-            inset 0 1px 0 rgba(255,255,255,0.06)
+            0 0 0 1px rgba(176,137,37,0.25),
+            0 24px 50px rgba(58,53,43,0.18),
+            0 0 60px rgba(212,164,55,0.22),
+            inset 0 1px 0 rgba(255,255,255,0.6),
+            inset 0 -1px 0 rgba(106,81,23,0.08)
           `,
           display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
           padding: '30px 40px',
