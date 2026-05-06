@@ -10,10 +10,10 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 }/*EDITMODE-END*/;
 
 const GOLD_SHADES = {
-  warm:    { gold: '#d4a437', bright: '#f0c75a', deep: '#8a6a1f', soft: '#b8902f' },
-  champagne: { gold: '#c9b27a', bright: '#e6d4a3', deep: '#8a7848', soft: '#a89867' },
-  rose:    { gold: '#d49b6f', bright: '#e8b88c', deep: '#8c5e3e', soft: '#b8825a' },
-  bright:  { gold: '#f5c842', bright: '#ffd76b', deep: '#a07f1f', soft: '#d6ae39' },
+  warm:    { gold: '#b08925', bright: '#d4a437', deep: '#6a5117', soft: '#8e6f1f' },
+  champagne: { gold: '#9c8345', bright: '#c9b27a', deep: '#5e4d29', soft: '#7d6a3a' },
+  rose:    { gold: '#a86e3f', bright: '#d49b6f', deep: '#6e4a2c', soft: '#8c5e3e' },
+  bright:  { gold: '#c9a01f', bright: '#f5c842', deep: '#7d641a', soft: '#a07f1f' },
 };
 
 const PHONE = '+91 98765 43210';
@@ -35,7 +35,7 @@ function Nav({ onQuote }) {
     return () => window.removeEventListener('scroll', h);
   }, []);
   return (
-    <nav className="nav" style={{ background: scrolled ? 'rgba(8,8,8,0.92)' : 'rgba(10,10,10,0.5)' }}>
+    <nav className="nav" style={{ background: scrolled ? 'rgba(255,253,247,0.94)' : 'rgba(255,253,247,0.6)' }}>
       <a href="#home" className="logo" aria-label="Jangra home">
         <img src="uploads/00001.png" className="logo-img" alt="Jangra logo" />
       </a>

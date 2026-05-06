@@ -82,14 +82,14 @@ function ServicesSection({ density }) {
 function PlaceholderTile({ label, h, accent = false, tone = 'gold' }) {
   const toneColor = tone === 'blue' ? 'var(--blue-bright)' : tone === 'red' ? 'var(--red)' : 'var(--gold)';
   const toneBg = tone === 'blue'
-    ? `repeating-linear-gradient(45deg, #0e1226, #0e1226 8px, #131a36 8px, #131a36 16px)`
+    ? `repeating-linear-gradient(45deg, #dde5f5, #dde5f5 8px, #c9d6ee 8px, #c9d6ee 16px)`
     : tone === 'red'
-    ? `repeating-linear-gradient(45deg, #1a0d0f, #1a0d0f 8px, #221013 8px, #221013 16px)`
-    : `repeating-linear-gradient(45deg, #1a1610, #1a1610 8px, #221c10 8px, #221c10 16px)`;
+    ? `repeating-linear-gradient(45deg, #f7e1e4, #f7e1e4 8px, #f0d0d4 8px, #f0d0d4 16px)`
+    : `repeating-linear-gradient(45deg, #f5edd1, #f5edd1 8px, #ebe2b6 8px, #ebe2b6 16px)`;
   return (
     <div style={{
       width: '100%', height: h,
-      background: accent ? toneBg : `repeating-linear-gradient(45deg, #131311, #131311 8px, #181816 8px, #181816 16px)`,
+      background: accent ? toneBg : `repeating-linear-gradient(45deg, #f1ead4, #f1ead4 8px, #e8e0c4 8px, #e8e0c4 16px)`,
       display: 'grid', placeItems: 'center',
       position: 'relative',
     }}>
@@ -287,15 +287,15 @@ function ContactSection({ phone, onSubmit }) {
             <div style={{
               marginTop: '32px',
               height: '220px',
-              background: 'repeating-linear-gradient(0deg, #0d0c09, #0d0c09 12px, #131210 12px, #131210 24px), repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(212,164,55,0.08) 60px, rgba(212,164,55,0.08) 61px)',
+              background: 'repeating-linear-gradient(0deg, #f0e8d3, #f0e8d3 12px, #e8dec0 12px, #e8dec0 24px), repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(176,137,37,0.18) 60px, rgba(176,137,37,0.18) 61px)',
               border: '1px solid var(--line)',
               position: 'relative',
               display: 'grid', placeItems: 'center',
             }}>
-              <div className="mono" style={{ fontSize: '10px', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--muted-2)', position: 'absolute', top: '14px', left: '14px' }}>
+              <div className="mono" style={{ fontSize: '10px', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--muted)', position: 'absolute', top: '14px', left: '14px' }}>
                 MAP · GURGAON SECTOR 14
               </div>
-              <div style={{ width: '14px', height: '14px', background: 'var(--gold)', borderRadius: '50%', boxShadow: '0 0 0 6px rgba(212,164,55,0.18), 0 0 0 14px rgba(212,164,55,0.08)' }} />
+              <div style={{ width: '14px', height: '14px', background: 'var(--gold)', borderRadius: '50%', boxShadow: '0 0 0 6px rgba(176,137,37,0.28), 0 0 0 14px rgba(176,137,37,0.14)' }} />
             </div>
           </div>
 
@@ -414,13 +414,13 @@ function FooterSection({ phone }) {
 
 function BrandSpectrumSection() {
   const items = [
-    { name: 'Midnight', value: '#0a0a0a', label: 'Surface', desc: 'The night canvas behind every glow.' },
+    { name: 'Parchment', value: '#faf6ec', label: 'Surface', desc: 'The cream canvas behind every signature.' },
     { name: 'Royal Blue', value: '#1d4ed8', label: 'Heritage', desc: 'From the orb — depth and trust.' },
-    { name: 'Signal Red', value: '#e63946', label: 'Energy', desc: 'The accent that makes signs sing.' },
-    { name: 'Studio Gold', value: '#d4a437', label: 'Craft', desc: 'The finish on every JANGRA piece.' },
+    { name: 'Signal Red', value: '#c8313f', label: 'Energy', desc: 'The accent that makes signs sing.' },
+    { name: 'Studio Gold', value: '#b08925', label: 'Craft', desc: 'The finish on every JANGRA piece.' },
   ];
   return (
-    <section className="section-pad" style={{ background: 'linear-gradient(180deg, #0a0a0a 0%, #060606 100%)', borderTop: '1px solid var(--line-2)', borderBottom: '1px solid var(--line-2)' }}>
+    <section className="section-pad" style={{ background: 'linear-gradient(180deg, var(--bg) 0%, #f3ecda 100%)', borderTop: '1px solid var(--line-2)', borderBottom: '1px solid var(--line-2)' }}>
       <div className="container">
         <div className="between" style={{ alignItems: 'flex-end', flexWrap: 'wrap', gap: '40px' }}>
           <div>
@@ -446,19 +446,19 @@ function BrandSpectrumSection() {
                 height: '180px',
                 background: c.value,
                 position: 'relative',
-                boxShadow: c.name === 'Royal Blue' ? 'inset 0 -40px 80px rgba(59,130,246,0.4)' :
-                           c.name === 'Signal Red' ? 'inset 0 -40px 80px rgba(255,107,107,0.3)' :
-                           c.name === 'Studio Gold' ? 'inset 0 -40px 80px rgba(240,199,90,0.4)' :
-                           'inset 0 -40px 80px rgba(212,164,55,0.08)',
+                boxShadow: c.name === 'Royal Blue' ? 'inset 0 -40px 80px rgba(13,33,107,0.45)' :
+                           c.name === 'Signal Red' ? 'inset 0 -40px 80px rgba(141,29,42,0.4)' :
+                           c.name === 'Studio Gold' ? 'inset 0 -40px 80px rgba(106,81,23,0.4)' :
+                           'inset 0 0 0 1px rgba(176,137,37,0.25)',
               }}>
-                <div className="mono" style={{ position: 'absolute', top: '14px', left: '14px', fontSize: '10px', letterSpacing: '0.18em', color: c.name === 'Midnight' ? 'var(--gold)' : 'rgba(0,0,0,0.7)', textTransform: 'uppercase', fontWeight: 600 }}>
+                <div className="mono" style={{ position: 'absolute', top: '14px', left: '14px', fontSize: '10px', letterSpacing: '0.18em', color: c.name === 'Parchment' ? 'rgba(58,53,43,0.75)' : 'rgba(255,250,240,0.9)', textTransform: 'uppercase', fontWeight: 600 }}>
                   {c.label}
                 </div>
-                <div className="mono" style={{ position: 'absolute', bottom: '14px', right: '14px', fontSize: '11px', color: c.name === 'Midnight' ? 'var(--gold)' : 'rgba(0,0,0,0.85)', letterSpacing: '0.04em', fontWeight: 600 }}>
+                <div className="mono" style={{ position: 'absolute', bottom: '14px', right: '14px', fontSize: '11px', color: c.name === 'Parchment' ? 'rgba(58,53,43,0.85)' : 'rgba(255,250,240,0.95)', letterSpacing: '0.04em', fontWeight: 600 }}>
                   {c.value.toUpperCase()}
                 </div>
               </div>
-              <div style={{ padding: '24px 24px 30px', background: 'var(--bg)' }}>
+              <div style={{ padding: '24px 24px 30px', background: 'var(--card)' }}>
                 <div className="serif" style={{ fontSize: '22px', fontWeight: 500, color: 'var(--ivory)' }}>{c.name}</div>
                 <div style={{ marginTop: '8px', fontSize: '13px', color: 'var(--muted)', lineHeight: 1.5 }}>{c.desc}</div>
               </div>

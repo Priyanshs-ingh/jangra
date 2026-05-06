@@ -78,14 +78,15 @@ function Signboard({ variant = "luxe", text = "JANGRA", sub = "ADVERTISEMENT", l
         {/* board face */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(135deg, #1a1815 0%, #0e0d0a 100%)',
-          border: '2px solid #2a2724',
+          background: 'linear-gradient(135deg, #f7efd9 0%, #ebe0c2 100%)',
+          border: '2px solid #c9bd9b',
           borderRadius: '4px',
           boxShadow: `
-            0 0 0 1px rgba(212,164,55,0.15),
-            0 30px 80px rgba(0,0,0,0.7),
-            0 0 60px rgba(212,164,55,0.18),
-            inset 0 1px 0 rgba(255,255,255,0.05)
+            0 0 0 1px rgba(176,137,37,0.25),
+            0 24px 50px rgba(58,53,43,0.18),
+            0 0 60px rgba(212,164,55,0.22),
+            inset 0 1px 0 rgba(255,255,255,0.6),
+            inset 0 -1px 0 rgba(106,81,23,0.08)
           `,
           display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',
           padding: '30px 40px',
@@ -143,7 +144,7 @@ function Signboard({ variant = "luxe", text = "JANGRA", sub = "ADVERTISEMENT", l
           position: 'absolute',
           left: '8%', right: '8%', bottom: '-30px',
           height: '30px',
-          background: 'radial-gradient(ellipse, rgba(0,0,0,0.7) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse, rgba(58,53,43,0.25) 0%, transparent 70%)',
           filter: 'blur(8px)',
         }} />
       </div>
@@ -164,8 +165,8 @@ function HeroLuxe({ headline, sub, onQuote, onWork, phone }) {
       }} />
       {/* subtle grid */}
       <div style={{
-        position: 'absolute', inset: 0, opacity: 0.4,
-        backgroundImage: 'linear-gradient(rgba(212,164,55,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(212,164,55,0.04) 1px, transparent 1px)',
+        position: 'absolute', inset: 0, opacity: 0.5,
+        backgroundImage: 'linear-gradient(rgba(106,81,23,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(106,81,23,0.07) 1px, transparent 1px)',
         backgroundSize: '60px 60px',
         maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)',
       }} />
@@ -362,7 +363,7 @@ function HeroIndustrial({ headline, sub, onQuote, onWork, phone }) {
         position: 'absolute', top: '120px', right: '-180px',
         width: '600px', height: '600px',
         background: 'var(--gold)',
-        opacity: 0.06,
+        opacity: 0.12,
         transform: 'rotate(15deg)',
       }} />
 
@@ -402,9 +403,9 @@ function HeroIndustrial({ headline, sub, onQuote, onWork, phone }) {
               </button>
               <button onClick={onWork} style={{
                 padding: '18px 32px',
-                background: '#0a0a0a', color: 'var(--ivory)',
+                background: '#1a1814', color: '#faf6ec',
                 fontWeight: 700, fontSize: '13px', letterSpacing: '0.16em', textTransform: 'uppercase',
-                border: '1.5px solid var(--ivory)',
+                border: '1.5px solid #1a1814',
                 borderRadius: 0,
               }}>
                 View Work
