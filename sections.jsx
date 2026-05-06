@@ -78,46 +78,14 @@ function ServicesSection({ density }) {
   );
 }
 
-// ─── Gallery placeholder tile ───
-function PlaceholderTile({ label, h, accent = false, tone = 'gold' }) {
-  const toneColor = tone === 'blue' ? 'var(--blue-bright)' : tone === 'red' ? 'var(--red)' : 'var(--gold)';
-  const toneBg = tone === 'blue'
-    ? `repeating-linear-gradient(45deg, #dde5f5, #dde5f5 8px, #c9d6ee 8px, #c9d6ee 16px)`
-    : tone === 'red'
-    ? `repeating-linear-gradient(45deg, #f7e1e4, #f7e1e4 8px, #f0d0d4 8px, #f0d0d4 16px)`
-    : `repeating-linear-gradient(45deg, #f5edd1, #f5edd1 8px, #ebe2b6 8px, #ebe2b6 16px)`;
-  return (
-    <div style={{
-      width: '100%', height: h,
-      background: accent ? toneBg : `repeating-linear-gradient(45deg, #f1ead4, #f1ead4 8px, #e8e0c4 8px, #e8e0c4 16px)`,
-      display: 'grid', placeItems: 'center',
-      position: 'relative',
-    }}>
-      <div className="mono" style={{
-        position: 'absolute', top: '14px', left: '14px',
-        fontSize: '9px', letterSpacing: '0.24em', textTransform: 'uppercase',
-        color: accent ? toneColor : 'var(--muted-2)',
-      }}>
-        IMG · {label.split('|')[1] || '01'}
-      </div>
-      <div style={{ textAlign: 'center', padding: '20px' }}>
-        <div className="mono" style={{ fontSize: '10px', letterSpacing: '0.18em', color: 'var(--muted)', textTransform: 'uppercase' }}>
-          {label.split('|')[0]}
-        </div>
-      </div>
-      <div style={{ position: 'absolute', bottom: '14px', right: '14px', width: '8px', height: '8px', background: accent ? toneColor : 'var(--muted-2)' }} />
-    </div>
-  );
-}
-
 const portfolio = [
-  { tag: 'ACP', name: 'Royal Auto Showroom — Sector 32', span: 8, h: 360, label: 'Storefront facade · ACP cladding|01', accent: true, tone: 'gold' },
-  { tag: 'NEON', name: 'Cafe Palette — Galleria Market', span: 4, h: 360, label: 'Neon channel letters|02', accent: true, tone: 'red' },
-  { tag: 'ACRYLIC', name: 'Maple Leaf Dental Clinic', span: 4, h: 280, label: '3D acrylic backlit|03', accent: true, tone: 'blue' },
-  { tag: 'FLEX', name: 'Construction Site Hoarding', span: 4, h: 280, label: 'Outdoor flex banner|04' },
-  { tag: 'LASER', name: 'Lobby Wall — JMD Megapolis', span: 4, h: 280, label: 'Laser-cut metal lettering|05', accent: true, tone: 'gold' },
-  { tag: 'WALL', name: 'Lounge — The Centrum', span: 6, h: 320, label: '3D textured wallpaper|06' },
-  { tag: 'DIGITAL', name: 'Brand Merchandise Run', span: 6, h: 320, label: 'Digital print collateral|07', accent: true, tone: 'blue' },
+  { tag: 'ACP', name: 'Royal Auto Showroom — Sector 32', span: 8, h: 360, img: 'https://images.unsplash.com/photo-1747484820147-479c1f7a1d00?w=1400&q=80&auto=format&fit=crop' },
+  { tag: 'NEON', name: 'Cafe Palette — Galleria Market', span: 4, h: 360, img: 'https://images.unsplash.com/photo-1543949144-a8b18c58a635?w=900&q=80&auto=format&fit=crop' },
+  { tag: 'ACRYLIC', name: 'Maple Leaf Dental Clinic', span: 4, h: 280, img: 'https://images.unsplash.com/photo-1520453803296-c39eabe2dab4?w=900&q=80&auto=format&fit=crop' },
+  { tag: 'FLEX', name: 'Construction Site Hoarding', span: 4, h: 280, img: 'https://images.unsplash.com/photo-1533069027836-fa937181a8ce?w=900&q=80&auto=format&fit=crop' },
+  { tag: 'LASER', name: 'Lobby Wall — JMD Megapolis', span: 4, h: 280, img: 'https://images.unsplash.com/photo-1669040977972-f91b2bde1d9a?w=900&q=80&auto=format&fit=crop' },
+  { tag: 'WALL', name: 'Lounge — The Centrum', span: 6, h: 320, img: 'https://images.unsplash.com/photo-1774921676894-ef31f9028765?w=1200&q=80&auto=format&fit=crop' },
+  { tag: 'DIGITAL', name: 'Brand Merchandise Run', span: 6, h: 320, img: 'https://images.unsplash.com/photo-1623305465231-d884ce752d59?w=1200&q=80&auto=format&fit=crop' },
 ];
 
 function GallerySection() {
@@ -148,10 +116,16 @@ function GallerySection() {
 
         <div className="gallery-grid">
           {portfolio.map((p, i) => (
-            <div key={i} className="tile" style={{ gridColumn: `span ${p.span}` }}>
-              <PlaceholderTile label={p.label} h={p.h} accent={p.accent} tone={p.tone} />
+            <div key={i} className="tile" style={{ gridColumn: `span ${p.span}`, height: p.h }}>
+              <img
+                src={p.img}
+                alt={p.name}
+                className="tile-img"
+                loading="lazy"
+                style={{ objectFit: 'cover' }}
+              />
               <div className="tile-overlay">
-                <div className="tile-tag" style={{ color: p.tone === 'blue' ? 'var(--blue-bright)' : p.tone === 'red' ? '#ff6b6b' : 'var(--gold)' }}>{p.tag}</div>
+                <div className="tile-tag">{p.tag}</div>
                 <div className="tile-name">{p.name}</div>
               </div>
             </div>
@@ -283,19 +257,22 @@ function ContactSection({ phone, onSubmit }) {
               </div>
             </div>
 
-            {/* map placeholder */}
+            {/* map — live Google Maps embed of Sector 14, Gurgaon */}
             <div style={{
               marginTop: '32px',
-              height: '220px',
-              background: 'repeating-linear-gradient(0deg, #f0e8d3, #f0e8d3 12px, #e8dec0 12px, #e8dec0 24px), repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(176,137,37,0.18) 60px, rgba(176,137,37,0.18) 61px)',
+              height: '260px',
               border: '1px solid var(--line)',
+              boxShadow: '0 6px 24px rgba(58,53,43,0.08)',
               position: 'relative',
-              display: 'grid', placeItems: 'center',
+              overflow: 'hidden',
             }}>
-              <div className="mono" style={{ fontSize: '10px', letterSpacing: '0.24em', textTransform: 'uppercase', color: 'var(--muted)', position: 'absolute', top: '14px', left: '14px' }}>
-                MAP · GURGAON SECTOR 14
-              </div>
-              <div style={{ width: '14px', height: '14px', background: 'var(--gold)', borderRadius: '50%', boxShadow: '0 0 0 6px rgba(176,137,37,0.28), 0 0 0 14px rgba(176,137,37,0.14)' }} />
+              <iframe
+                title="Jangra workshop — Sector 14, Gurgaon"
+                src="https://maps.google.com/maps?q=Sector%2014%2C%20Gurgaon%2C%20Haryana%20122001&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                style={{ width: '100%', height: '100%', border: 0, display: 'block' }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
 
