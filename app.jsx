@@ -35,7 +35,7 @@ function Nav({ onQuote }) {
     return () => window.removeEventListener('scroll', h);
   }, []);
   return (
-    <nav className="nav" style={{ background: scrolled ? 'rgba(255,253,247,0.94)' : 'rgba(255,253,247,0.6)' }}>
+    <nav className="nav" style={{ background: scrolled ? 'linear-gradient(180deg, rgba(28,23,20,0.96) 0%, rgba(20,16,14,0.96) 100%)' : 'linear-gradient(180deg, rgba(36,30,26,0.85) 0%, rgba(28,23,20,0.85) 100%)' }}>
       <a href="#home" className="logo" aria-label="Jangra home">
         <img src="uploads/00001.png" className="logo-img" alt="Jangra logo" />
       </a>

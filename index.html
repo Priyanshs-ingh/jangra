@@ -56,17 +56,10 @@
     display: flex; align-items: center; justify-content: space-between;
     padding: 18px 40px;
     backdrop-filter: blur(14px);
-    background: rgba(255,253,247,0.85);
-    border-bottom: 1px solid rgba(176,137,37,0.18);
+    background: linear-gradient(180deg, rgba(36,30,26,0.92) 0%, rgba(28,23,20,0.92) 100%);
+    border-bottom: 1px solid rgba(212,164,55,0.28);
   }
   .logo { display: flex; align-items: center; gap: 12px; }
-  /* Dark plaque behind the nav logo so the artwork stays readable on the cream nav */
-  .nav .logo {
-    padding: 6px 12px;
-    background: linear-gradient(135deg, #1a1814 0%, #0e0d0a 100%);
-    border-radius: 4px;
-    box-shadow: 0 0 0 1px rgba(212,164,55,0.22), 0 4px 14px rgba(26,24,20,0.18);
-  }
   .logo-mark {
     width: 38px; height: 38px;
     background: linear-gradient(135deg, var(--gold-bright), var(--gold-deep));
@@ -119,13 +112,13 @@
   }
   .nav-links { display: flex; gap: 36px; }
   .nav-links a {
-    font-size: 13px; font-weight: 500; color: var(--text);
+    font-size: 13px; font-weight: 500; color: #f0e8d0;
     position: relative; padding: 6px 0;
     transition: color 0.2s;
   }
   .nav-links a::after {
     content: ""; position: absolute; left: 0; right: 0; bottom: 0;
-    height: 1px; background: var(--gold); transform: scaleX(0);
+    height: 1px; background: var(--gold-bright); transform: scaleX(0);
     transform-origin: left; transition: transform 0.3s;
   }
   .nav-links a:hover { color: var(--gold-bright); }
@@ -161,7 +154,7 @@
   .brand-rule .b { background: var(--blue-bright); }
   .nav-phone {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 12px; color: var(--gold);
+    font-size: 12px; color: var(--gold-bright);
     letter-spacing: 0.04em;
   }
   .nav-right { display: flex; align-items: center; gap: 22px; }
